@@ -7,7 +7,7 @@ def call(stages){
     def stagesList = stages.split(";")
 
     stagesList.each{
-        println("stages enviados ===> ${it})
+        println("stages enviados ===> ${it}")
     }
 
     stage("Paso 1: Build && Test"){
