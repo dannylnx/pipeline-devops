@@ -15,15 +15,13 @@ def call(){
             stage("Pipeline"){
                 steps {
                     script{
-                    switch(params.compileTool)
-                        {
-                            case 'Maven':
-                                maven.call(params.stages)
-                            break;
-                            case 'Gradle':
-                                gradle.call(params.stages)
-                            break;
-                        }
+                    sh "env"
+                      env.TAREA = ""
+                      if(params.compileTool == 'maven'){
+                        maven.call(params.stages);
+                      }else{
+                        gradle.call(params.stages)
+                      }
                     }
                 }
             }
